@@ -1,0 +1,236 @@
+/* General layout */
+body {
+  margin: 0;
+  display: flex;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+/* Left panel (Cesium map) */
+#leftPanel {
+  flex: 7;
+  position: relative;
+}
+#cesiumContainer {
+  width: 100%;
+  height: 100%;
+}
+
+/* Right panel */
+#rightPanel {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid #ccc;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* Page title */
+#pageTitle {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
+}
+#pageTitle small {
+  font-size: 12px;
+  font-weight: normal;
+  display: block;
+  margin-top: 2px;
+}
+
+/* Panel content */
+#panelContent {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+}
+
+/* Bottom outputs */
+#bottomRight {
+  margin-top: auto;
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+}
+
+/* Input rows */
+.input-row {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.row-1 {
+  grid-template-columns: 1fr 1fr;
+}
+.row-2 {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+select, input, textarea {
+  width: 100%;
+  padding: 4px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+button {
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.section h3 {
+  margin-top: 0;
+  margin-bottom: 5px;
+  font-size: 16px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 3px;
+}
+
+/* About / Contact Section Styling */
+#about {
+  background-color: #f5f5f5;
+  border-left: 4px solid #d9534f;
+  padding: 15px;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+#about h2, #about h3 {
+  margin-top: 0;
+  color: #333;
+}
+#about p {
+  font-size: 0.9em;
+  line-height: 1.4;
+  color: #555;
+}
+#about a {
+  color: #d9534f;
+  text-decoration: none;
+}
+#about a:hover {
+  text-decoration: underline;
+}
+
+/* 📱 Mobile-friendly layout */
+@media (max-width: 768px) {
+  body {
+    flex-direction: column; /* stack panels vertically */
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  #leftPanel {
+    flex: none;
+    height: 30vh; /* map = 30% */
+    min-height: 150px;
+  }
+  #cesiumContainer {
+    height: 100% !important;
+  }
+
+  #rightPanel {
+    flex: none;
+    height: 70vh; /* controls = 70% */
+    border-left: none;
+    border-top: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 6px;
+    box-sizing: border-box;
+  }
+
+  /* Title + inputs always visible */
+  #pageTitle,
+  #inputs {
+    flex: none;
+  }
+
+  /* Scroll only results (damage, summary, outputs) */
+  #panelContent {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  /* Results font smaller */
+  #damage,
+  #summary,
+  #bottomRight {
+    font-size: 12px;
+    line-height: 1.3;
+  }
+  #damage h3,
+  #summary h3,
+  #bottomRight h3 {
+    font-size: 13px;
+    margin-bottom: 4px;
+  }
+
+  /* Outputs scrollable */
+  #bottomRight {
+    max-height: 180px;
+    overflow-y: auto;
+    border-top: 1px solid #ccc;
+    padding-top: 6px;
+  }
+
+  /* Bigger inputs for touch */
+  #inputs select,
+  #inputs input,
+  #inputs textarea {
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 4px;
+  }
+
+  /* 🔥 Fire button */
+  #inputs button {
+    display: block;
+    width: 100%;
+    background-color: #d9534f;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    padding: 12px;
+    font-size: 15px;
+    cursor: pointer;
+    margin-top: 8px;
+  }
+  #inputs button:hover {
+    background-color: #c9302c;
+  }
+
+  /* About box smaller */
+  #about {
+    font-size: 0.8em;
+    padding: 6px;
+  }
+}
+/* Arrange Outputs in grid */
+#bottomRight {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 8px;
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+/* Each output item */
+#bottomRight p {
+  margin: 0;
+  padding: 4px;
+  background: #f9f9f9;
+  border-radius: 4px;
+  border: 1px solid #eee;
+}
