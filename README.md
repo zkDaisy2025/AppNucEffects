@@ -7,6 +7,11 @@ It is built with **CesiumJS**, HTML, CSS, and JavaScript, and designed to be mob
 
 ---
 
+## 📸 Preview
+![App Screenshot](screenshot.png)
+
+---
+
 ## 🔹 Features
 - Interactive map (CesiumJS)
 - Input options for launch/target cities, missile type, and burst height
@@ -17,7 +22,6 @@ It is built with **CesiumJS**, HTML, CSS, and JavaScript, and designed to be mob
 ---
 
 ## 📱 Try it online
-Once GitHub Pages is enabled, you can run it here:  
 👉 [https://zkDaisy2025.github.io/AppNucEffects/](https://zkDaisy2025.github.io/AppNucEffects/)
 
 ---
